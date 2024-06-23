@@ -1,8 +1,8 @@
-name: Weekly Sync
+name: Daily Sync
 
 on:
   schedule:
-    - cron: '0 16 * * 0'  # 每周日 16:00 UTC，即北京时间周一凌晨 00:00
+    - cron: '0 16 * * *'  # 每天16:00 UTC，即北京时间每天凌晨0:00
   workflow_dispatch:
 
 jobs:
@@ -20,4 +20,5 @@ jobs:
           git remote add upstream https://github.com/bei-ko/bei-ko.github.io.git
           git fetch upstream
           git reset --hard upstream/main
+          git remote set-url origin https://x-access-token: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@github.com/UndefinedMarisa/beiko-pages-mirror.git
           git push origin main --force
